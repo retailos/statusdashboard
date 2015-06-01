@@ -11,7 +11,7 @@ exports.create = function() {
   var settings = {};
 
   var defaults = {
-    title: 'Services Status Dashboard',
+    title: 'Red Ant Status Dashboard',
     hostname: '127.0.0.1',
     port: 8080,
     client: {
@@ -26,93 +26,11 @@ exports.create = function() {
     port: 8080,
     hostname: '0.0.0.0',
     services: [{
-      name: 'couchdb', 
-      label: 'Couchdb server @ local',
+      name: 'ros-chanel', 
+      label: 'ros-chanel',
       check: 'http',
-      host: '127.0.0.1', 
-      port: '5984',
-      path: '/'
-    }, {
-      name: 'blog.bazoud.com', 
-      label: 'Olivier Bazoud blog: Index',
-      check: 'http',
-      host: 'blog.bazoud.com', 
+      host: 'ros-chanel.herokuapp.com', 
       port: '80',
-      path: '/'
-    }, {
-      name: 'blog.bazoud.com-healthCheck',
-      label: 'Olivier Bazoud blog: healthCheck',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheck'
-    }, {
-      name: 'blog.bazoud.com-fixedvalue-ok',
-      label: 'Olivier Bazoud blog: FixedValue ok',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheck',
-      checkFixedValueResponse: {
-        'ok': 'up',
-        'ko': 'critical'
-      }
-    }, {
-      name: 'healthCheck-fixedvalue-ko',
-      label: 'Olivier Bazoud blog: FixedValue: ko',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheckKO',
-      checkFixedValueResponse: {
-        'ok': 'up',
-        'ko': 'critical'
-      }
-    }, {
-      name: 'blog.bazoud.com-rangevalues-10',
-      label: 'Olivier Bazoud blog: RangeValues 10',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheckRange',
-      checkRangeValuesResponse: [
-        { 'status': 'up', 'min': 0, 'max': 10 },
-        { 'status': 'critical', 'min': 10 }
-      ]
-    }, {
-      name: 'redis',
-      label: 'Redis server @ local',
-      check: 'tcp',
-      host: '127.0.0.1',
-      port: '6379',
-      cmd: 'PING\r\n',
-      rcv: '+PONG\r\n'
-    }, {
-      name: 'redis-without-cmd',
-      label: 'Redis server @ local (without cmd)',
-      check: 'tcp',
-      host: '127.0.0.1',
-      port: '6379'
-    }, {
-      name: 'FTP-Local',
-      label: 'Ftp @ local',
-      check: 'ftp',
-      host: 'localhost',
-      port: '21',
-      username: 'statusdashboard',
-      password: 'statusdashboard'
-    }, {
-      name: 'PID-file',
-      label: 'Pid @ local',
-      check: 'pidfile',
-      pidfile: '/tmp/terminal.pid',
-      status: 'maintenance'
-    }, {
-      name: 'Local HTTP sample',
-      label: 'Local HTTP Sample: healthCheck',
-      check: 'http',
-      host: 'localhost',
-      port: '3303',
       path: '/'
     }],
     serviceInterval: 6000,
